@@ -8,6 +8,7 @@ app.config['SECRET_KEY'] = 'what_is_secret_key'
 
 
 def main():
+    db_session.global_init("db/data.db")
     app.run()
 
 
