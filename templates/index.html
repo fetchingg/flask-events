@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1 class="hero-title">
+        Афиша событий в {{ city_changed }}
+    </h1>
+
+    <!-- календарь -->
+    <div class="calendar-container mb-5">
+        <div id="calendar"></div>
+    </div>
+
+    <!-- фильтры -->
+    <div class="d-flex align-items-center gap-3 mb-5 flex-wrap">
+
+        <!-- город -->
+        <form method="GET" class="d-flex gap-3 align-items-center">
+
+            <select id="city-select"
+                    name="city"
+                    placeholder="Введите город">
+
+                <option value="{{ city }}" selected>
+                    {{ city }}
+                </option>
+
+            </select>
+
+            <input type="hidden"
+                   name="type"
+                   value="{{ event_type }}">
+
+            <button class="filter-btn">
+                Выбрать
+            </button>
+
+        </form>
+
+        <!-- тип ивента -->
+        <div class="dropdown">
+
+            <button class="filter-btn dropdown-toggle"
+                    data-bs-toggle="dropdown">
+
+                {{ event_type }}
+
+            </button>
+
+            <ul class="dropdown-menu">
+
+                <li>
+                    <a class="dropdown-item"
+                       href="/?city={{ city }}&type=Концерты">
+                        Концерты
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-item"
+                       href="/?city={{ city }}&type=Театр">
+                        Театр
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-item"
+                       href="/?city={{ city }}&type=Кино">
+                        Кино
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-item"
+                       href="/?city={{ city }}&type=Свободная тематика">
+                        Свободная тематика
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
