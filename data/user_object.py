@@ -1,8 +1,10 @@
 import sqlalchemy
+from sqlalchemy_serializer import SerializerMixin
+
 from data.db_session import SqlAlchemyBase
 
 
-class User(SqlAlchemyBase):
+class User(SqlAlchemyBase, SerializerMixin):
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True, index=True, nullable=False)
