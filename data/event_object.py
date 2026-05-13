@@ -1,8 +1,10 @@
 import sqlalchemy
+from sqlalchemy_serializer import SerializerMixin
+
 from data.db_session import SqlAlchemyBase
 
 
-class Event(SqlAlchemyBase):
+class Event(SqlAlchemyBase, SerializerMixin):
     __tablename__ = 'events'
 
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True, index=True, nullable=False)
